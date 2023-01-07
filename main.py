@@ -1,7 +1,5 @@
 #TicTacToe Scripting Game
 
-
-#Todo: Create 2 functions to check the values of the row and columns
 def check_row(row):
     if row == 1:
         player_row = 0
@@ -25,6 +23,49 @@ def check_column(column):
         player_column = 2
         return player_column
 
+def has_won(game_board):
+    game_over = False
+    #Version 1
+    if game_board[0][0] == 'X'and game_board[1][0] == 'X' and game_board[2][0] == 'X' \
+            or game_board[0][0] == 'O'and game_board[1][0] == 'O' and game_board[2][0] == 'O':
+        game_over = True
+        return game_over
+    # Version 2
+    elif game_board[0] == ['X','X','X'] \
+            or game_board[0] == ['O', 'O', 'O']:
+        game_over = True
+        return game_over
+    # Version 3
+    elif game_board[1] == ['X','X','X'] \
+            or game_board[1] == ['O', 'O', 'O']:
+        game_over = True
+        return game_over
+    # Version 4
+    elif game_board[2] == ['X','X','X'] \
+            or game_board[2] == ['O', 'O', 'O']:
+        game_over = True
+        return game_over
+    # Version 5
+    elif game_board[0][1] == 'X'and game_board[1][1] == 'X' and game_board[2][1] == 'X' \
+            or game_board[0][1] == 'O'and game_board[1][1] == 'O' and game_board[2][1] == 'O':
+        game_over = True
+        return game_over
+    # Version 6
+    elif game_board[0][2] == 'X'and game_board[1][2] == 'X' and game_board[2][2] == 'X' \
+            or game_board[0][2] == 'O'and game_board[1][2] == 'O' and game_board[2][2] == 'O':
+        game_over = True
+        return game_over
+    # Version 7
+    elif game_board[0][0] == 'X'and game_board[1][1] == 'X' and game_board[2][2] == 'X' \
+            or game_board[0][0] == 'O'and game_board[1][1] == 'O' and game_board[2][2] == 'O':
+        game_over = True
+        return game_over
+    # Version 8
+    elif game_board[0][2] == 'X'and game_board[1][1] == 'X' and game_board[2][0] == 'X' \
+            or game_board[0][2] == 'O'and game_board[1][1] == 'O' and game_board[2][0] == 'O':
+        game_over = True
+        return game_over
+
 
 print("Let's play TicTacToe!! \n"
       "Player X will go first and then Player O\n"
@@ -47,17 +88,18 @@ while is_game_running:
         for row in game_board:
             print(row)
         player_O_turn = True
-    if player_X_turn:
-        player_row = int(input('Player X Please enter row you want to mark on the board: '))
-        player_col = int(input('Player X Please enter column you want to mark on the board: '))
-        game_board[check_row(player_row)][check_column(player_col)] = 'X'
+    if player_O_turn:
+        player_row = int(input('Player O Please enter row you want to mark on the board: '))
+        player_col = int(input('Player O Please enter column you want to mark on the board: '))
+        game_board[check_row(player_row)][check_column(player_col)] = 'O'
         for row in game_board:
             print(row)
-        player_O_turn = True
+        player_X_turn = True
+    has_won(game_board)
+    if has_won:
+        print("the game is over player wins")
 
 
-#Todo: build a has won function checking the possible win conditions
-#Todo: sync to Git
 
 
 
