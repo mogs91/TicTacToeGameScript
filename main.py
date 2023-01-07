@@ -11,7 +11,6 @@ def check_row(row):
         player_row = 2
         return player_row
 
-
 def check_column(column):
     if column == 1:
         player_column = 0
