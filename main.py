@@ -112,7 +112,7 @@ def play_game(is_game_running, player_X_turn, player_O_turn,game_board):
 
 
 if is_game_running:
-    play_game(is_game_running, player_X_turn, player_O_turn)
+    play_game(is_game_running, player_X_turn, player_O_turn,game_board)
 elif is_game_running== False:
     print("Thank you for playing")
     restart = input("If want to play again press Y else press N: ")
